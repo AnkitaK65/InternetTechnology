@@ -1,0 +1,60 @@
+/* Basic CSS Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+h1 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Box model example */
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 30px;
+    border: 5px solid #333;
+}
+
+/* Pseudo-classes */
+a:hover {
+    color: red;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}

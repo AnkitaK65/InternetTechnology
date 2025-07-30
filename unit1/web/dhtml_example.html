@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHTML Example</title>
+    <style>
+        #dynamicContent {
+            width: 300px;
+            height: 100px;
+            background-color: lightblue;
+            padding: 20px;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function changeContent() {
+            document.getElementById("dynamicContent").innerHTML = 
+                "<h3>Content Changed!</h3><p>This is dynamic content.</p>";
+        }
+        
+        function toggleVisibility() {
+            var element = document.getElementById("dynamicContent");
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Dynamic HTML Example</h1>
+    
+    <div id="dynamicContent">
+        Original content that can be changed dynamically.
+    </div>
+    
+    <button onclick="changeContent()">Change Content</button>
+    <button onclick="toggleVisibility()">Toggle Visibility</button>
+</body>
+</html>
