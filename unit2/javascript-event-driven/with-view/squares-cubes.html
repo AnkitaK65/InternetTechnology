@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Squares and Cubes</title>
+</head>
+<body>
+    <h1>Squares and Cubes from 5 to 15</h1>
+    <button onclick="displayNumbers()">Show Numbers</button>
+
+    <script>
+        function displayNumbers() {
+            let output = '';
+            for (let i = 5; i <= 15; i++) {
+                output += `Number: ${i}, Square: ${i*i}, Cube: ${i*i*i}\n`;
+            }
+            alert(output);
+        }
+    </script>
+</body>
+</html>

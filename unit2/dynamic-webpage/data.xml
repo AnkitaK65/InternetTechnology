@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <book id="xml001">
+        <author>Haruki Murakami</author>
+        <title>Kafka on the Shore</title>
+        <genre>Magical Realism</genre>
+        <price>12.99</price>
+        <publish_date>2002-09-12</publish_date>
+        <description>A mind-bending story that follows two remarkable characters on their strange journeys.</description>
+        <rating>4.2</rating>
+        <pages>505</pages>
+        <language>Japanese</language>
+    </book>
+    <book id="xml002">
+        <author>Margaret Atwood</author>
+        <title>The Handmaid's Tale</title>
+        <genre>Dystopian</genre>
+        <price>9.99</price>
+        <publish_date>1985-08-01</publish_date>
+        <description>A chilling vision of a theocratic dictatorship in the former United States.</description>
+        <rating>4.4</rating>
+        <pages>311</pages>
+        <language>English</language>
+    </book>
+    <book id="xml003">
+        <author>Gabriel García Márquez</author>
+        <title>One Hundred Years of Solitude</title>
+        <genre>Magical Realism</genre>
+        <price>14.50</price>
+        <publish_date>1967-05-30</publish_date>
+        <description>The multi-generational story of the Buendía family in the town of Macondo.</description>
+        <rating>4.6</rating>
+        <pages>417</pages>
+        <language>Spanish</language>
+    </book>
+    <book id="xml004">
+        <author>J.R.R. Tolkien</author>
+        <title>The Lord of the Rings</title>
+        <genre>Fantasy</genre>
+        <price>22.95</price>
+        <publish_date>1954-07-29</publish_date>
+        <description>The epic fantasy adventure of Frodo Baggins and the One Ring.</description>
+        <rating>4.8</rating>
+        <pages>1178</pages>
+        <language>English</language>
+    </book>
+    <book id="xml005">
+        <author>Frank Herbert</author>
+        <title>Dune</title>
+        <genre>Science Fiction</genre>
+        <price>11.25</price>
+        <publish_date>1965-08-01</publish_date>
+        <description>The story of Paul Atreides and the desert planet Arrakis.</description>
+        <rating>4.7</rating>
+        <pages>604</pages>
+        <language>English</language>
+    </book>
+    <book id="xml006">
+        <author>Chimamanda Ngozi Adichie</author>
+        <title>Americanah</title>
+        <genre>Literary Fiction</genre>
+        <price>10.99</price>
+        <publish_date>2013-05-14</publish_date>
+        <description>A powerful story of love and race centered around a young Nigerian woman.</description>
+        <rating>4.3</rating>
+        <pages>477</pages>
+        <language>English</language>
+    </book>
+    <book id="xml007">
+        <author>Yuval Noah Harari</author>
+        <title>Sapiens: A Brief History of Humankind</title>
+        <genre>Nonfiction</genre>
+        <price>15.75</price>
+        <publish_date>2011-02-10</publish_date>
+        <description>A exploration of the history of our species from the Stone Age to the present.</description>
+        <rating>4.5</rating>
+        <pages>443</pages>
+        <language>Hebrew</language>
+    </book>
+    <book id="xml008">
+        <author>Khaled Hosseini</author>
+        <title>The Kite Runner</title>
+        <genre>Historical Fiction</genre>
+        <price>8.99</price>
+        <publish_date>2003-05-29</publish_date>
+        <description>An unforgettable story of friendship, betrayal, and redemption in Afghanistan.</description>
+        <rating>4.3</rating>
+        <pages>371</pages>
+        <language>English</language>
+    </book>
+    <book id="xml009">
+        <author>George Orwell</author>
+        <title>1984</title>
+        <genre>Dystopian</genre>
+        <price>7.50</price>
+        <publish_date>1949-06-08</publish_date>
+        <description>A terrifying vision of totalitarian society and thought control.</description>
+        <rating>4.7</rating>
+        <pages>328</pages>
+        <language>English</language>
+    </book>
+    <book id="xml010">
+        <author>J.K. Rowling</author>
+        <title>Harry Potter and the Philosopher's Stone</title>
+        <genre>Fantasy</genre>
+        <price>9.99</price>
+        <publish_date>1997-06-26</publish_date>
+        <description>The first book in the Harry Potter series about a young wizard's adventures.</description>
+        <rating>4.8</rating>
+        <pages>223</pages>
+        <language>English</language>
+    </book>
+    <book id="xml011">
+        <author>Michelle Obama</author>
+        <title>Becoming</title>
+        <genre>Memoir</genre>
+        <price>12.99</price>
+        <publish_date>2018-11-13</publish_date>
+        <description>A deeply personal memoir by the former First Lady of the United States.</description>
+        <rating>4.6</rating>
+        <pages>448</pages>
+        <language>English</language>
+    </book>
+    <book id="xml012">
+        <author>Stephen Hawking</author>
+        <title>A Brief History of Time</title>
+        <genre>Science</genre>
+        <price>11.25</price>
+        <publish_date>1988-03-01</publish_date>
+        <description>An introduction to cosmology explaining complex concepts for general readers.</description>
+        <rating>4.2</rating>
+        <pages>256</pages>
+        <language>English</language>
+    </book>
+</catalog>

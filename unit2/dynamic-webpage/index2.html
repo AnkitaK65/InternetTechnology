@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalog (Non-AJAX Version)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Book Catalog</h1>
+    
+    <div class="controls">
+        <button id="loadXml">Load XML Data</button>
+        <button id="loadJson">Load JSON Data</button>
+        <input type="text" id="searchInput" placeholder="Search books...">
+        <select id="filterSelect">
+            <option value="all">All Genres</option>
+        </select>
+    </div>
+    
+    <div class="loading" id="loadingIndicator">
+        <span class="loading-spinner"></span>
+        Loading data...
+    </div>
+    <div id="bookContainer"></div>
+    <div class="error" id="errorContainer"></div>
+    
+    <!-- Include JSON data directly -->
+    <script src="data.json" id="jsonData" type="application/json"></script>
+    
+    <script src="script2.js"></script>
+</body>
+</html>

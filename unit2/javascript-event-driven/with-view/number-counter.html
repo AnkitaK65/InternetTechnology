@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Counter</title>
+</head>
+<body>
+    <h1>Number Counter</h1>
+    <p>Enter numbers (separated by commas):</p>
+    <input type="text" id="numbersInput" placeholder="e.g., 5, -3, 0, 10">
+    <button onclick="countNumbers()">Count</button>
+    <p id="result"></p>
+
+    <script>
+        function countNumbers() {
+            const input = document.getElementById('numbersInput').value;
+            const resultElement = document.getElementById('result');
+            
+            if (!input.trim()) {
+                resultElement.textContent = 'Please enter some numbers';
+                return;
+            }
+            
+            const numbers = input.split(',').map(num => parseFloat(num.trim()));
+            
+            let positive = 0, negative = 0, zero = 0;
+            
+            numbers.forEach(num => {
+                if (isNaN(num)) return;
+                if (num > 0) positive++;
+                else if (num < 0) negative++;
+                else zero++;
+            });
+            
+            resultElement.textContent = 
+                `Positive: ${positive}, Negative: ${negative}, Zero: ${zero}`;
+        }
+    </script>
+</body>
+</html>

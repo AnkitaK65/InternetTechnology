@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content Loader with AJAX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Book Catalog</h1>
+    
+    <div class="controls">
+        <button id="loadXml">Load XML Data (AJAX)</button>
+        <button id="loadJson">Load JSON Data (AJAX)</button>
+        <button id="loadFetch">Load with Fetch API</button>
+        <input type="text" id="searchInput" placeholder="Search books...">
+        <select id="filterSelect">
+            <option value="all">All Genres</option>
+            <!-- Genres will be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="loading" id="loadingIndicator">
+        <span class="loading-spinner"></span>
+        Loading data...
+    </div>
+    <div id="bookContainer"></div>
+    <div class="error" id="errorContainer"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

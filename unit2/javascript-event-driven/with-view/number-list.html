@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number List Calculator</title>
+</head>
+<body>
+    <h1>Number List Calculator</h1>
+    <p>Enter positive numbers (end with 0):</p>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="addNumber()">Add Number</button>
+    <button onclick="calculate()">Calculate</button>
+    <p id="numbers"></p>
+    <p id="result"></p>
+
+    <script>
+        const numbers = [];
+        
+        function addNumber() {
+            const num = parseFloat(document.getElementById('numberInput').value);
+            if (isNaN(num)) {
+                alert('Please enter a valid number');
+                return;
+            }
+            
+            numbers.push(num);
+            document.getElementById('numbers').textContent = 
+                `Numbers: ${numbers.join(', ')}`;
+            document.getElementById('numberInput').value = '';
+        }
+        
+        function calculate() {
+            if (numbers.length === 0 || numbers[numbers.length - 1] !== 0) {
+                alert('Please end your list with 0');
+                return;
+            }
+            
+            // Remove the terminating 0
+            const numList = numbers.slice(0, -1);
+            
+            const sum = numList.reduce((acc, num) => acc + num, 0);
+            const average = sum / numList.length;
+            
+            document.getElementById('result').innerHTML = 
+                `Sum: ${sum}<br>Average: ${average.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
