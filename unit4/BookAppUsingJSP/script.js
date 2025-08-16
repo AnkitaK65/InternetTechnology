@@ -1,89 +1,93 @@
-let booksData = { books: [] };
-let editIndex = null;
+// Store the book being edited
+let currentEditBookId = null;
 
-async function loadBooks() {
-    const res = await fetch("books");
-    booksData = await res.json();
-    renderTable(document.getElementById("filterInput").value);
+// Function to filter table rows
+function filterTable() {
+    const filter = document.getElementById("filterInput").value.toLowerCase();
+    const rows = document.querySelectorAll("#booksTable tbody tr");
+    
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
 }
 
-function renderTable(filterText = "") {
-    const tbody = document.querySelector("#booksTable tbody");
-    tbody.innerHTML = "";
-    booksData.books
-        .filter(book => {
-            const search = filterText.toLowerCase();
-            return (
-                book.title.toLowerCase().includes(search) ||
-                book.author.toLowerCase().includes(search) ||
-                book.genre.toLowerCase().includes(search)
-            );
-        })
-        .forEach((book, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${book.id}</td>
-                <td>${book.author}</td>
-                <td>${book.title}</td>
-                <td>${book.genre}</td>
-                <td>${book.price}</td>
-                <td>${book.publish_date}</td>
-                <td>${book.rating}</td>
-                <td>${book.pages}</td>
-                <td>${book.language}</td>
-                <td>
-                    <button class="action-btn edit-btn" onclick="openModal(${index})">Edit</button>
-                    <button class="action-btn delete-btn" onclick="deleteBook(${index})">Delete</button>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
-}
-
-function openModal(index = null) {
-    editIndex = index;
+// Open modal for editing a book
+function openModalEdit(bookId) {
+    currentEditBookId = bookId;
     const modal = document.getElementById("bookModal");
     const title = document.getElementById("modalTitle");
-    const form = document.getElementById("bookForm");
-
-    if (index !== null) {
-        title.textContent = "Edit Book";
-        const book = booksData.books[index];
-        document.getElementById("bookId").value = book.id;
-        document.getElementById("bookTitle").value = book.title;
-        document.getElementById("bookAuthor").value = book.author;
-        document.getElementById("bookGenre").value = book.genre;
-        document.getElementById("bookPrice").value = book.price;
-        document.getElementById("bookDate").value = book.publish_date;
-        document.getElementById("bookRating").value = book.rating;
-        document.getElementById("bookPages").value = book.pages;
-        document.getElementById("bookLanguage").value = book.language;
-    } else {
-        title.textContent = "Add New Book";
-        form.reset();
+    
+    // Find the book row in the table
+    const rows = document.querySelectorAll("#booksTable tbody tr");
+    for (const row of rows) {
+        if (row.cells[0].textContent === bookId) {
+            title.textContent = "Edit Book";
+            document.getElementById("bookId").value = row.cells[0].textContent;
+            document.getElementById("bookTitle").value = row.cells[2].textContent;
+            document.getElementById("bookAuthor").value = row.cells[1].textContent;
+            document.getElementById("bookGenre").value = row.cells[3].textContent;
+            document.getElementById("bookPrice").value = row.cells[4].textContent;
+            document.getElementById("bookDate").value = formatDateForInput(row.cells[5].textContent);
+            document.getElementById("bookRating").value = row.cells[6].textContent;
+            document.getElementById("bookPages").value = row.cells[7].textContent;
+            document.getElementById("bookLanguage").value = row.cells[8].textContent;
+            break;
+        }
     }
-
+    
     modal.style.display = "block";
+}
+
+// Helper function to format date for input[type=date]
+function formatDateForInput(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
 function closeModal() {
     document.getElementById("bookModal").style.display = "none";
+    currentEditBookId = null;
+    document.getElementById("bookForm").reset();
 }
 
-async function deleteBook(index) {
-    const book = booksData.books[index];
+async function deleteBook(bookId) {
     if (confirm("Are you sure you want to delete this book?")) {
-        await fetch(`books?id=${book.id}`, { method: "DELETE" });
-        loadBooks();
+        try {
+            const response = await fetch(`books?id=${bookId}`, { 
+                method: "DELETE" 
+            });
+            const result = await response.json();
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                alert(result.error || "Error deleting book");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Error deleting book");
+        }
     }
 }
 
-document.getElementById("addBookBtn").addEventListener("click", () => openModal());
+// Event Listeners
+document.getElementById("addBookBtn").addEventListener("click", () => {
+    currentEditBookId = null;
+    document.getElementById("modalTitle").textContent = "Add New Book";
+    document.getElementById("bookForm").reset();
+    document.getElementById("bookModal").style.display = "block";
+});
+
 document.getElementById("closeModal").addEventListener("click", closeModal);
 
 document.getElementById("bookForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-    const book = {
+    
+    const bookData = {
         id: document.getElementById("bookId").value,
         title: document.getElementById("bookTitle").value,
         author: document.getElementById("bookAuthor").value,
@@ -95,27 +99,27 @@ document.getElementById("bookForm").addEventListener("submit", async function(e)
         language: document.getElementById("bookLanguage").value
     };
 
-    if (editIndex === null) {
-        await fetch("books", {
-            method: "POST",
+    try {
+        const method = currentEditBookId ? "PUT" : "POST";
+        const response = await fetch("books", {
+            method: method,
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(book)
+            body: JSON.stringify(bookData)
         });
-    } else {
-        await fetch("books", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(book)
-        });
+        
+        const result = await response.json();
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            alert(result.error || "Error saving book");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error saving book");
     }
-
-    closeModal();
-    loadBooks();
 });
 
-document.getElementById("filterInput").addEventListener("input", function() {
-    renderTable(this.value);
-});
+document.getElementById("filterInput").addEventListener("input", filterTable);
 
 window.onclick = function(event) {
     const modal = document.getElementById("bookModal");
@@ -124,4 +128,5 @@ window.onclick = function(event) {
     }
 };
 
-loadBooks();
+// Initial filter setup
+document.getElementById("filterInput").addEventListener("input", filterTable);
