@@ -145,3 +145,8 @@ This project implements a JSP-Servlet-MVC web application for managing books usi
 - JSP Application with MVC is designed so that index.jsp submits forms to the controller (/books) using an action parameter instead of JSON. Since browsers cannot send DELETE requests directly from HTML forms, a hidden field _method=delete is handled in doPost to call bookDAO.deleteBook(...). 
 - A redirect check at the top of index.jsp ensures it works both when accessed directly or via /books.
 - The project is built as a WAR using mvn clean package -U, deployed to Tomcat, and accessible at http://localhost:8080/YourApp/.
+
+### Unit-5
+
+### Unit-5 - bean-example
+This project demonstrates a simple Book Management Web Application using JSP, JavaBeans, and JDBC. The Book class acts as a JavaBean that encapsulates book data with private fields and public getters/setters, ensuring reusability and data encapsulation. JSP pages use this bean for data binding, while JDBC handles database operations like Insert, Update, Delete, and Fetch from MySQL. This follows the MVC (Model 1 style) pattern
