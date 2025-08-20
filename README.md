@@ -150,3 +150,10 @@ This project implements a JSP-Servlet-MVC web application for managing books usi
 
 ### Unit-5 - bean-example
 This project demonstrates a simple Book Management Web Application using JSP, JavaBeans, and JDBC. The Book class acts as a JavaBean that encapsulates book data with private fields and public getters/setters, ensuring reusability and data encapsulation. JSP pages use this bean for data binding, while JDBC handles database operations like Insert, Update, Delete, and Fetch from MySQL. This follows the MVC (Model 1 style) pattern
+
+### Unit-5 - bean-app-javabean-jsp
+This project is a Java Web Application built using the MVC architecture with Servlets, JSP, and JavaBeans. The Book JavaBean acts as the model, BookDAO handles database operations with MySQL, and BookController (Servlet) manages request/response flow. The front-end uses JSP with JSTL, CSS, and JavaScript to provide a user-friendly interface for performing CRUD operations on a book catalog.
+
+
+
+As the next step, you are encouraged to start exploring modern frameworks like Spring Boot.
