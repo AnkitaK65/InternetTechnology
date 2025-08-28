@@ -146,6 +146,48 @@ This project implements a JSP-Servlet-MVC web application for managing books usi
 - A redirect check at the top of index.jsp ensures it works both when accessed directly or via /books.
 - The project is built as a WAR using mvn clean package -U, deployed to Tomcat, and accessible at http://localhost:8080/YourApp/.
 
+### Unit-4 - Student Registration App
+Q: Develop a 3-page MVC-based student registration app using JSP (register.jsp), Servlet(StudentController.java), and JDBC, with success.jsp showing confirmation.
+ - Before running the project, ensure you have:
+    1. **Java JDK 17** or higher  
+    2. **Apache Tomcat 10**  
+    3. **MySQL Server**  
+    4. **Maven** installed and in your system PATH
+
+ - Database Setup**
+    1. Open MySQL and create the database and table:
+    ```sql
+    CREATE DATABASE studentdb;
+    USE studentdb;
+    CREATE TABLE students (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        age INT NOT NULL
+    );
+    
+ - Update database credentials in StudentController.java if needed
+
+ - Clone or download the repository.
+
+ - Open terminal/command prompt in project root.
+    - Build the project using Maven:
+        mvn clean package
+    The WAR file will be generated in the target/ folder.
+
+ - Deploy to Tomcat
+ - Copy the generated WAR file (e.g., StudentRegistrationApp.war) to Tomcat’s webapps folder.
+
+ - Start Tomcat:
+ - Open browser and access the app:
+    http://localhost:8080/StudentRegistrationApp/register.jsp
+
+ - Running the Application
+    -- Fill in the Name, Email, and Age fields in the registration form.
+    -- Click Register.
+    -- You will see the success page displaying the registered student details.
+    -- To register another student, click “Register Another Student” link.
+
 ### Unit-5
 
 ### Unit-5 - bean-example
@@ -154,6 +196,13 @@ This project demonstrates a simple Book Management Web Application using JSP, Ja
 ### Unit-5 - bean-app-javabean-jsp
 This project is a Java Web Application built using the MVC architecture with Servlets, JSP, and JavaBeans. The Book JavaBean acts as the model, BookDAO handles database operations with MySQL, and BookController (Servlet) manages request/response flow. The front-end uses JSP with JSTL, CSS, and JavaScript to provide a user-friendly interface for performing CRUD operations on a book catalog.
 
-
+Note:
+Q. Where can we get JAR files?
+A. Maven Central Repository (https://mvnrepository.com)
+- Use the search bar to look for the required library (e.g., mysql-connector-java, hibernate-core, etc.).
+- From the results page, you have two options:
+    - Download the .jar file directly and add it to your project manually.
+    or
+    - Copy the Maven/Gradle dependency snippet (if you are using a build tool like Maven or Gradle) → it will automatically download and manage the JAR and its dependencies for you.
 
 As the next step, you are encouraged to start exploring modern frameworks like Spring Boot.

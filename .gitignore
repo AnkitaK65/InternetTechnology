@@ -2,3 +2,38 @@ node_modules/
 .DS_Store
 *.log
 Steps.pages
+
+# Maven build
+**/target/
+**/*.war
+**/*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Libraries (optional if you include them manually)
+lib/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Eclipse (if used)
+.settings/
+.project
+.classpath
+
+# IntelliJ
+*.ipr
+*.iws
+
+# Tomcat / deployment folders
+**/WEB-INF/classes/
+**/META-INF/
